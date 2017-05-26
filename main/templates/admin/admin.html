@@ -17,6 +17,7 @@
 
   <div class="row text-center">
     {{admin_link('User List', 'group', url_for('user_list', order='-modified', active=True))}}
+    {{admin_link('Contact', 'list', url_for('admin_contact_list'))}}
   </div>
 
   <div class="page-header">
