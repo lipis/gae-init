@@ -1,0 +1,49 @@
+# extends 'base.html'
+# import 'macro/forms.html' as forms
+# import 'macro/utils.html' as utils
+
+
+# block content
+  <div class="page-header">
+    <div class="pull-right">
+      <a class="btn btn-default" href="{{url_for('contact_update')}}" title="Add Contact">
+        <span class="fa fa-plus fa-fw"></span>
+      </a>
+      <a class="btn btn-primary" href="{{url_for('contact_update', contact_id=contact_db.key.id())}}">
+        <span class="fa fa-fw fa-pencil"></span> Edit
+      </a>
+    </div>
+    <h1>
+      {{utils.back_link('Back', 'contact_list')}}
+      {{title}}
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <th class="text-nowrap col-xs-1">Name</th>
+            <td class="col-xs-11">{{contact_db.name}}</td>
+          </tr>
+          <tr>
+            <th class="text-nowrap col-xs-1">Email</th>
+            <td class="col-xs-11">{{contact_db.email}}</td>
+          </tr>
+          <tr>
+            <th class="text-nowrap col-xs-1">Phone</th>
+            <td class="col-xs-11">{{contact_db.phone}}</td>
+          </tr>
+          <tr>
+            <th class="text-nowrap col-xs-1">Address</th>
+            <td class="col-xs-11">{{contact_db.address}}</td>
+          </tr>
+          <tr>
+            <th class="text-nowrap col-xs-1">Birthdate</th>
+            <td class="col-xs-11">{{contact_db.birthdate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+# endblock

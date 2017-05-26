@@ -1,0 +1,41 @@
+# extends 'base.html'
+# import 'macro/utils.html' as utils
+
+# block head
+  {{utils.prefetch_link(next_url)}}
+# endblock
+
+# block content
+  <div class="page-header">
+    <a class="pull-right btn btn-primary" href="{{url_for('contact_update')}}">
+      <fa class="fa fa-plus fa-fw"></fa> Add Contact
+    </a>
+    <h1>{{title}}</h1>
+  </div>
+  <div class="table-responsive {{'hide' if not contact_dbs|count}}">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr class="text-nowrap">
+          <th class="col-xs-1">{{utils.order_by_link('name', 'Name')}}</th>
+          <th class="col-xs-1">{{utils.order_by_link('email', 'Email')}}</th>
+          <th class="col-xs-1">{{utils.order_by_link('phone', 'Phone')}}</th>
+          <th class="col-xs-1">{{utils.order_by_link('address', 'Address')}}</th>
+          <th class="col-xs-1">{{utils.order_by_link('birthdate', 'Birthdate')}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        # for contact_db in contact_dbs
+          <tr class="row-link" id="{{contact_db.key.urlsafe()}}" data-href="{{url_for('contact_view', contact_id=contact_db.key.id())}}">
+            <td>{{contact_db.name}}</td>
+            <td>{{contact_db.email}}</td>
+            <td>{{contact_db.phone}}</td>
+            <td>{{contact_db.address}}</td>
+            <td>{{contact_db.birthdate}}</td>
+          </tr>
+        # endfor
+      </tbody>
+    </table>
+  </div>
+
+  {{utils.next_link(next_url)}}
+# endblock
