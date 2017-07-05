@@ -3,7 +3,8 @@
     "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
     "jquery": "3.2.1",
-    "moment": "2.18.1"
+    "moment": "2.18.1",
+    "vue": "https://github.com/vuejs/vue.git"
   },
   "name": "gae-init",
   "overrides": {
@@ -12,6 +13,9 @@
     },
     "font-awesome": {
       "main": ["less/*", "fonts/*"]
+    },
+    "vue": {
+      "main": ["dist/*"]
     }
   }
 }
